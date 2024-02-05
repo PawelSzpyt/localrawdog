@@ -6,7 +6,7 @@ from contextlib import redirect_stdout
 from rawdog.llm_client import LLMClient
 
 
-llm_client = LLMClient()  # Will prompt for API key if not found
+llm_client = LLMClient()
 
 
 def rawdog(prompt: str, verbose: bool=False):
@@ -60,7 +60,7 @@ def banner():
 
 
 def main():
-    parser = argparse.ArgumentParser(description='A smart assistant that can execute Python code to help or hurt you.')
+    parser = argparse.ArgumentParser(description='A smart assistant that can execute Python code to help you.') # might help you or hurt you, the risk is yours
     parser.add_argument('prompt', nargs='*', help='Prompt for direct execution. If empty, enter conversation mode')
     parser.add_argument('--dry-run', action='store_true', help='Print the script before executing and prompt for confirmation.')
     args = parser.parse_args()

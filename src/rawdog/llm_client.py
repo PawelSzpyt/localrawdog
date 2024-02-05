@@ -52,11 +52,11 @@ class LLMClient:
 
     def __init__(self):    
         self.log_path = rawdog_dir / "logs.jsonl"    
-        self.base_url = get_llm_base_url() or 'https://api.openai.com/v1'
+        self.base_url = get_llm_base_url() or 'no_url'
         set_base_url(self.base_url)
-        self.model = get_llm_model() or 'gpt-4'
+        self.model = get_llm_model() or 'no_model'
         set_llm_model(self.model)
-        self.api_key = get_llm_api_key() or os.environ.get("OPENAI_API_KEY")
+        self.api_key = get_llm_api_key() or 'no_api_key'
         while self.api_key is None:
             print(f"API Key ({self.api_key}) not found. ")
             self.api_key = input("Enter API Key (e.g. OpenAI): ").strip()
